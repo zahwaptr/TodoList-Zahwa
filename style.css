@@ -98,3 +98,8 @@
       flex-direction: column; 
       gap: 5px;
     }
+
+    .completed {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
