@@ -6,24 +6,12 @@ function tambahTodo() {
 
   const li = document.createElement("li");
 
-  // CHECKBOX
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-
   const span = document.createElement("span");
   span.textContent = input.value;
 
-  // EVENT CHECKBOX
-  checkbox.onchange = function () {
-    if (checkbox.checked) {
-      span.classList.add("completed");
-    } else {
-      span.classList.remove("completed");
-    }
-  };
-
   const actions = document.createElement("div");
   actions.classList.add("actions");
+  
 
   // EDIT
   const btnEdit = document.createElement("button");
@@ -47,16 +35,7 @@ function tambahTodo() {
   actions.appendChild(btnEdit);
   actions.appendChild(btnDelete);
 
-  // WRAPPER biar checkbox + text sejajar
-  const left = document.createElement("div");
-  left.style.display = "flex";
-  left.style.alignItems = "center";
-  left.style.gap = "10px";
-
-  left.appendChild(checkbox);
-  left.appendChild(span);
-
-  li.appendChild(left);
+  li.appendChild(span);
   li.appendChild(actions);
 
   list.appendChild(li);
