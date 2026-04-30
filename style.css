@@ -1,0 +1,100 @@
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-add {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-add:hover {
+      background: #5a67d8;
+    }
+
+    ul {
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      list-style: none;
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; 
+      gap: 10px; 
+    }
+
+    li span {
+      flex: 1;              
+      word-break: break-word; 
+    }
+
+    .actions button {
+      margin-left: 5px;
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+
+    .btn-edit {
+      background: orange;
+      color: white;
+    }
+
+    .btn-delete {
+      background: red;
+      color: white;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column; 
+      gap: 5px;
+    }
