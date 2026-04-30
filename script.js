@@ -63,3 +63,9 @@ function tambahTodo() {
 
   input.value = "";
 }
+
+document.getElementById("inputTodo").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    tambahTodo();
+  }
+});
