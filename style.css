@@ -7,8 +7,8 @@
       background: linear-gradient(135deg, #667eea, #764ba2);
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;
+      padding: 20px 0;
       margin: 0;
     }
 
@@ -16,8 +16,12 @@
       background: white;
       padding: 25px;
       border-radius: 15px;
-      width: 350px;
+      width: 750px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 380px;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     h1 {
@@ -32,9 +36,10 @@
 
     input {
       flex: 1;
-      padding: 10px;
-      border-radius: 8px;
       border: 1px solid #ddd;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
     }
 
     button {
@@ -88,9 +93,10 @@
       color: white;
     }
 
-    li span {
-      flex: 1;              
-      word-break: break-word; 
+    li span {              
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .actions {
@@ -102,4 +108,31 @@
     .completed {
       text-decoration: line-through;
       opacity: 0.6;
+    }
+
+    .filter {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .filter button {
+      flex: 1;
+      margin: 2px;
+      background: #eee;
+    }
+
+    #info {
+     font-size: 12px;
+     margin-top: 5px;
+     color: #666;
+     text-align: center;
+     word-break: break-word;
+    }
+
+    .left {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      flex: 1;
     }
