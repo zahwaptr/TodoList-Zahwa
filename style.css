@@ -1,138 +1,165 @@
 * {
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-    body {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px 0;
-      margin: 0;
-    }
+body {
+  background: linear-gradient(
+    135deg,
+    #6a82fb,
+    #8e5de8
+  );
 
-    .container {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      width: 750px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 380px;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
+  min-height: 100vh;
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 
-    .input-group {
-      display: flex;
-      gap: 10px;
-    }
+  padding: 20px 0;
+  margin: 0;
+}
 
-    input {
-      flex: 1;
-      border: 1px solid #ddd;
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
+.container {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
-    button {
-      border: none;
-      border-radius: 8px;
-      padding: 10px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+/* SCROLLBAR */
+.container::-webkit-scrollbar {
+  width: 6px;
+}
 
-    .btn-add {
-      background: #667eea;
-      color: white;
-    }
+.container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
 
-    .btn-add:hover {
-      background: #5a67d8;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    ul {
-      padding: 0;
-      margin-top: 20px;
-    }
+.input-group {
+  display: flex;
+  gap: 10px;
+}
 
-    li {
-      list-style: none;
-      background: #f9f9f9;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 10px;
+.input-group input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
 
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start; 
-      gap: 10px; 
-    }
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-    .actions button {
-      margin-left: 5px;
-      padding: 5px 8px;
-      font-size: 12px;
-    }
+button:hover {
+  transform: scale(1.03);
+}
 
-    .btn-edit {
-      background: orange;
-      color: white;
-    }
+.btn-add {
+  background: #667eea;
+  color: white;
+}
 
-    .btn-delete {
-      background: red;
-      color: white;
-    }
+.btn-add:hover {
+  background: #5a67d8;
+}
 
-    li span {              
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+.filter {
+  display: flex;
+  gap: 5px;
+  margin-top: 15px;
+}
 
-    .actions {
-      display: flex;
-      flex-direction: column; 
-      gap: 5px;
-    }
+.filter button {
+  flex: 1;
+  background: #eee;
+  font-size: 12px;
+}
 
-    .completed {
-      text-decoration: line-through;
-      opacity: 0.6;
-    }
+#info {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
 
-    .filter {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
+ul {
+  padding: 0;
+  margin-top: 20px;
+}
 
-    .filter button {
-      flex: 1;
-      margin: 2px;
-      background: #eee;
-    }
+li {
+  list-style: none;
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 
-    #info {
-     font-size: 12px;
-     margin-top: 5px;
-     color: #666;
-     text-align: center;
-     word-break: break-word;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
 
-    .left {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      flex: 1;
-    }
+.left {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+}
+
+/* CHECKBOX */
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+li span {
+  flex: 1;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.actions button {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.btn-edit {
+  background: orange;
+  color: white;
+}
+
+.btn-delete {
+  background: red;
+  color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
