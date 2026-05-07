@@ -1,19 +1,23 @@
 let todos = [];
 let filter = "all";
 
-// LOAD data
+// Load Data
 window.onload = function () {
   const data = localStorage.getItem("todos");
+
   if (data) {
     todos = JSON.parse(data);
   }
+
   render();
 };
 
+// Save Data
 function save() {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+// Tambah Todo
 function tambahTodo() {
   const input = document.getElementById("inputTodo");
 
@@ -25,10 +29,12 @@ function tambahTodo() {
   });
 
   input.value = "";
+
   save();
   render();
 }
 
+// Render Todo
 function render() {
   const list = document.getElementById("listTodo");
   const info = document.getElementById("info");
@@ -36,56 +42,80 @@ function render() {
   list.innerHTML = "";
 
   let filtered = todos.filter(todo => {
-    if (filter === "done") return todo.done;
-    if (filter === "pending") return !todo.done;
+
+    if (filter === "done") {
+      return todo.done;
+    }
+
+    if (filter === "pending") {
+      return !todo.done;
+    }
+
     return true;
   });
 
   filtered.forEach((todo, index) => {
+
     const li = document.createElement("li");
 
+    // Left Side 
     const left = document.createElement("div");
-    left.style.display = "flex";
-    left.style.gap = "10px";
+    left.classList.add("left");
 
+    // Checkbox
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.done;
 
-    const span = document.createElement("span");
-    span.textContent = todo.text;
-
-    if (todo.done) span.classList.add("completed");
-
     checkbox.onchange = function () {
       todo.done = checkbox.checked;
+
       save();
       render();
     };
 
+    // Text
+    const span = document.createElement("span");
+    span.textContent = todo.text;
+
+    if (todo.done) {
+      span.classList.add("completed");
+    }
+
     left.appendChild(checkbox);
     left.appendChild(span);
 
+    // Action Buttons
     const actions = document.createElement("div");
     actions.classList.add("actions");
 
+    // Edit
     const btnEdit = document.createElement("button");
     btnEdit.textContent = "Edit";
     btnEdit.classList.add("btn-edit");
+
     btnEdit.onclick = function () {
+
       const newText = prompt("Edit tugas:", todo.text);
+
       if (newText && newText.trim() !== "") {
+
         todo.text = newText;
+
         save();
         render();
       }
     };
 
+    // Delete 
     const btnDelete = document.createElement("button");
     btnDelete.textContent = "Hapus";
     btnDelete.classList.add("btn-delete");
+
     btnDelete.onclick = function () {
+
       todos.splice(index, 1);
+
       save();
       render();
     };
@@ -97,19 +127,26 @@ function render() {
     li.appendChild(actions);
 
     list.appendChild(li);
+
   });
 
-  info.textContent = `Total: ${todos.length} | Done: ${todos.filter(t => t.done).length}`;
+  // Info
+  const doneCount = todos.filter(todo => todo.done).length;
+
+  info.textContent = `Total: ${todos.length} | Done: ${doneCount}`;
 }
 
+// Filter
 function setFilter(type) {
   filter = type;
   render();
 }
 
-// ENTER
+// Enter key
 document.getElementById("inputTodo").addEventListener("keypress", function(e) {
+
   if (e.key === "Enter") {
     tambahTodo();
   }
+
 });
