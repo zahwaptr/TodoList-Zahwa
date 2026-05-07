@@ -5,29 +5,30 @@
   <title>Todo List</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
 <div class="container">
+
   <h1>Todo List Zhwaptr</h1>
 
   <div class="input-group">
-    <input type="text" id="inputTodo" placeholder="Tambah tugas...">
+    <input type="text" id="inputTodo" placeholder="Ketik tugas kamu disini...">
     <button class="btn-add" onclick="tambahTodo()">+</button>
   </div>
 
+  <div class="filter">
+    <button onclick="setFilter('all')">All</button>
+    <button onclick="setFilter('done')">Done</button>
+    <button onclick="setFilter('pending')">Pending</button>
+  </div>
+
+  <p id="info"></p>
+
   <ul id="listTodo"></ul>
-</div>
 
-<div class="filter">
-  <button onclick="setFilter('all')">All</button>
-  <button onclick="setFilter('done')">Done</button>
-  <button onclick="setFilter('pending')">Pending</button>
 </div>
-
-<p id="info"></p>
 
 <script src="script.js"></script>
 
