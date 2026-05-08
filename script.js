@@ -17,14 +17,38 @@ function save() {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// Tambah Todo
 function tambahTodo() {
+
   const input = document.getElementById("inputTodo");
 
-  if (input.value.trim() === "") return;
+// Trim whitespace
+  const text = input.value.trim();
 
+// Validation input kosong
+  if (text === "") {
+    alert("Task tidak boleh kosong!");
+    return;
+  }
+
+// Character limit
+  if (text.length > 50) {
+    alert("Task maksimal 50 karakter!");
+    return;
+  }
+
+// Duplicate task validation
+  const isDuplicate = todos.some(todo =>
+    todo.text.toLowerCase() === text.toLowerCase()
+  );
+
+  if (isDuplicate) {
+    alert("Task sudah ada!");
+    return;
+  }
+
+// Tambah ke array
   todos.push({
-    text: input.value,
+    text: text,
     done: false
   });
 
